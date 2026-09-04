@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -9,681 +11,815 @@
                    maximum-scale=1.0,
                    user-scalable=no">
 
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="default">
+
     <title>&#8206;</title>
 
     <link rel="apple-touch-icon-precomposed"
           href="http://abc.haoyunlai.xyz/favicon.ico"
           type="image/x-icon">
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="apple-touch-icon"
+          href="icon.png">
 
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest"
+          href="manifest.json">
 
-    <link rel="apple-touch-icon" href="icon.png">
-    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet"
+          href="./style.css">
 
-    <style>
 
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+<style>
 
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            min-height: 100%;
-        }
+/* =========================================
+   CÀI ĐẶT CHUNG
+========================================= */
 
-        body {
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Helvetica Neue",
-                Arial,
-                "PingFang SC",
-                "Microsoft YaHei",
-                sans-serif;
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
 
-            background:
-                url('IMG_8622.jpeg')
-                no-repeat
-                center center
-                fixed;
+html,
+body {
+    margin: 0;
+    padding: 0;
 
-            background-size: cover;
+    width: 100%;
+    min-height: 100%;
 
-            display: flex;
-            justify-content: center;
+    overflow-x: hidden;
+}
 
-            overflow-x: hidden;
-            overflow-y: auto;
+body {
 
-            min-height: 100vh;
-        }
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        "PingFang SC",
+        "Microsoft YaHei",
+        sans-serif;
 
+    background-image:
+        url("IMG_8622.jpeg");
 
-        /* =========================
-           LỚP PHỦ TỐI
-        ========================= */
+    background-repeat: no-repeat;
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
+    background-position:
+        center center;
 
-            width: 100%;
-            height: 100%;
+    background-size: cover;
 
-            background: rgba(0, 0, 0, 0.50);
+    background-attachment: fixed;
 
-            z-index: 0;
+    min-height: 100vh;
 
-            pointer-events: none;
-        }
+    display: flex;
 
+    justify-content: center;
 
-        /* =========================
-           CONTAINER
-        ========================= */
+    align-items: flex-start;
+}
 
-        .container {
-            position: relative;
 
-            width: 100%;
+/* =========================================
+   LỚP PHỦ TỐI
+========================================= */
 
-            /*
-             * 390px màn hình
-             * khung trắng 282px
-             */
-            max-width: 282px;
+.overlay {
 
-            padding-top: 55px;
+    position: fixed;
 
-            text-align: center;
+    left: 0;
+    top: 0;
 
-            z-index: 1;
-        }
+    width: 100%;
+    height: 100%;
 
+    background:
+        rgba(0, 0, 0, 0.50);
 
-        /* =========================
-           TÊN NHÂN VIÊN
-        ========================= */
+    z-index: 0;
 
-        .user-info {
-            font-size: 16px;
+    pointer-events: none;
+}
 
-            line-height: 22px;
 
-            margin-bottom: 25px;
+/* =========================================
+   CONTAINER
+========================================= */
 
-            font-weight: 600;
+.container {
 
-            color: #e6d09f;
+    position: relative;
 
-            text-shadow:
-                0px 2px 4px rgba(0, 0, 0, 1),
-                0px 0px 10px rgba(0, 0, 0, 0.8);
+    width: 282px;
 
-            letter-spacing: 0.2px;
+    max-width: 282px;
 
-            white-space: nowrap;
-        }
+    margin: 0 auto;
 
+    padding-top: 55px;
 
-        /* =========================
-           KHUNG QR
-        ========================= */
+    z-index: 1;
 
-        .qr-card {
-            position: relative;
+    text-align: center;
+}
 
-            width: 282px;
 
-            /*
-             * Header 59px
-             * Body khoảng 349px
-             * Tổng khoảng 408px
-             */
-            background: #ffffff;
+/* =========================================
+   TÊN NHÂN VIÊN
+========================================= */
 
-            border-radius: 10px;
+.user-info {
 
-            overflow: hidden;
+    width: 100%;
 
-            box-shadow:
-                0 15px 35px rgba(0, 0, 0, 0.50);
-        }
+    height: 24px;
 
+    margin-bottom: 27px;
 
-        /* =========================
-           PHẦN MÀU VÀNG
-        ========================= */
+    font-size: 17px;
 
-        .qr-header {
-            width: 100%;
+    line-height: 24px;
 
-            height: 59px;
+    font-weight: 600;
 
-            background: #f5c542;
+    color: #e6d09f;
 
-            color: #ffffff;
+    white-space: nowrap;
 
-            display: flex;
+    letter-spacing: 0.1px;
 
-            align-items: center;
+    text-shadow:
+        0px 2px 4px rgba(0,0,0,1),
+        0px 0px 10px rgba(0,0,0,0.8);
+}
 
-            justify-content: center;
 
-            padding: 0 10px;
+/* =========================================
+   KHUNG QR
+========================================= */
 
-            font-size: 16px;
+.qr-card {
 
-            font-weight: 400;
+    position: relative;
 
-            line-height: 1.2;
+    width: 282px;
 
-            white-space: nowrap;
-        }
+    background: #ffffff;
 
+    border-radius: 10px;
 
-        /* =========================
-           LỖ TRÒN HAI BÊN
-        ========================= */
+    overflow: hidden;
 
-        .notch {
-            position: absolute;
+    box-shadow:
+        0px 15px 35px rgba(0,0,0,0.50);
+}
 
-            width: 14px;
-            height: 14px;
 
-            top: 52px;
+/* =========================================
+   PHẦN VÀNG
+========================================= */
 
-            background-color: #2e3045;
+.qr-header {
 
-            border-radius: 50%;
+    width: 100%;
 
-            z-index: 5;
-        }
+    height: 54px;
 
-        .notch-left {
-            left: -7px;
-        }
+    background:
+        #f5c542;
 
-        .notch-right {
-            right: -7px;
-        }
+    color: #ffffff;
 
+    display: flex;
 
-        /* =========================
-           PHẦN TRẮNG
-        ========================= */
+    align-items: center;
 
-        .qr-body {
-            width: 100%;
+    justify-content: center;
 
-            height: 349px;
+    padding: 0 8px;
 
-            padding-top: 10px;
+    font-size: 16px;
 
-            padding-left: 10px;
-            padding-right: 10px;
+    line-height: 20px;
 
-            padding-bottom: 15px;
+    font-weight: 400;
 
-            color: #222;
+    white-space: nowrap;
+}
 
-            text-align: center;
-        }
 
+/* =========================================
+   LỖ TRÒN
+========================================= */
 
-        /* =========================
-           THỜI GIAN
-        ========================= */
+.notch {
 
-        #current-time {
-            height: 27px;
+    position: absolute;
 
-            margin: 0;
+    width: 14px;
+    height: 14px;
 
-            font-size: 20px;
+    top: 47px;
 
-            line-height: 27px;
+    border-radius: 50%;
 
-            font-weight: 600;
+    background:
+        #2e3045;
 
-            color: #151a2a;
+    z-index: 10;
+}
 
-            letter-spacing: -0.5px;
+.notch-left {
+    left: -7px;
+}
 
-            white-space: nowrap;
-        }
+.notch-right {
+    right: -7px;
+}
 
 
-        /* =========================
-           KHUNG QR
-        ========================= */
+/* =========================================
+   PHẦN TRẮNG
+========================================= */
 
-        .qr-image-container {
+.qr-body {
 
-            width: 240px;
+    width: 100%;
 
-            height: 240px;
+    /*
+       Chiều cao được căn theo ảnh mẫu
+    */
 
-            margin: 2px auto 0 auto;
+    min-height: 408px;
 
-            display: flex;
+    padding-top: 16px;
 
-            align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
 
-            justify-content: center;
-        }
+    padding-bottom: 15px;
 
+    color: #111111;
 
-        /* =========================
-           QR
-        ========================= */
+    text-align: center;
+}
 
-        .ewm {
-            width: 240px;
 
-            height: 240px;
+/* =========================================
+   NGÀY GIỜ
+========================================= */
 
-            display: block;
+#current-time {
 
-            object-fit: contain;
+    width: 100%;
 
-            image-rendering: pixelated;
-        }
+    height: 29px;
 
+    margin: 0 0 9px 0;
 
-        /* =========================
-           CHỮ REFRESH
-        ========================= */
+    font-size: 20px;
 
-        .refresh-text {
-            display: block;
+    line-height: 29px;
 
-            color: #111111;
+    font-weight: 600;
 
-            font-size: 17px;
+    color: #151a2a;
 
-            line-height: 22px;
+    letter-spacing: -0.5px;
 
-            margin-top: 13px;
+    white-space: nowrap;
+}
 
-            margin-bottom: 0;
 
-            user-select: none;
+/* =========================================
+   KHUNG QR
+========================================= */
 
-            -webkit-user-select: none;
-        }
+.qr-image-container {
 
+    width: 240px;
 
-        /* =========================
-           TRẠNG THÁI
-        ========================= */
+    height: 240px;
 
-        .status-active {
+    margin: 0 auto;
 
-            color: #a9e8c7;
+    padding: 0;
 
-            font-size: 30px;
+    display: flex;
 
-            line-height: 38px;
+    align-items: center;
 
-            font-weight: 400;
+    justify-content: center;
+}
 
-            margin-top: 3px;
 
-            animation: breath 2.5s infinite ease-in-out;
-        }
+/* =========================================
+   QR
+========================================= */
 
+.ewm {
 
-        /* =========================
-           ĐỒNG HỒ
-        ========================= */
+    width: 240px;
 
-        #timer-up {
+    height: 240px;
 
-            color: #16c765;
+    margin: 0;
+    padding: 0;
 
-            font-size: 28px;
+    display: block;
 
-            line-height: 35px;
+    object-fit: contain;
 
-            font-weight: 500;
+    image-rendering: pixelated;
+}
 
-            margin-top: 0;
-        }
 
+/* =========================================
+   刷新二维码
+========================================= */
 
-        @keyframes breath {
+.refresh-text {
 
-            0%,
-            100% {
-                opacity: 0.70;
-            }
+    display: block;
 
-            50% {
-                opacity: 1;
-            }
-        }
+    width: 100%;
 
+    height: 25px;
 
-        /* =========================
-           THÔNG BÁO PHÍA DƯỚI
-        ========================= */
+    margin-top: 10px;
 
-        .footer-note {
+    margin-bottom: 0;
 
-            width: 100%;
+    color: #111111;
 
-            margin-top: 40px;
+    font-size: 17px;
 
-            margin-left: 0;
+    line-height: 25px;
 
-            margin-right: 0;
+    font-weight: 400;
 
-            margin-bottom: 30px;
+    user-select: none;
 
-            font-size: 17px;
+    -webkit-user-select: none;
+}
 
-            line-height: 1.75;
 
-            color: #e6d09f;
+/* =========================================
+   已生效
+========================================= */
 
-            text-align: left;
+.status-active {
 
-            text-shadow:
-                1px 1px 4px rgba(0, 0, 0, 1);
+    width: 100%;
 
-            opacity: 0.95;
-        }
+    height: 40px;
 
+    margin-top: 2px;
 
-        /* =========================
-           MÀN HÌNH NHỎ HƠN
-        ========================= */
+    color: #a9e8c7;
 
-        @media (max-width: 350px) {
+    font-size: 31px;
 
-            .container {
-                max-width: 270px;
-            }
+    line-height: 40px;
 
-            .qr-card {
-                width: 270px;
-            }
+    font-weight: 400;
 
-            .qr-image-container,
-            .ewm {
-                width: 228px;
-                height: 228px;
-            }
+    animation:
+        breath 2.5s infinite ease-in-out;
+}
 
-            #current-time {
-                font-size: 18px;
-            }
 
-            .qr-header {
-                font-size: 15px;
-            }
+/* =========================================
+   THỜI GIAN CÒN LẠI
+========================================= */
 
-            .footer-note {
-                font-size: 16px;
-            }
-        }
+#timer-up {
 
-    </style>
+    width: 100%;
+
+    height: 37px;
+
+    margin-top: 0;
+
+    color: #16c765;
+
+    font-size: 29px;
+
+    line-height: 37px;
+
+    font-weight: 500;
+
+    letter-spacing: 0;
+}
+
+
+/* =========================================
+   HIỆU ỨNG
+========================================= */
+
+@keyframes breath {
+
+    0%,
+    100% {
+        opacity: 0.70;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   THÔNG BÁO
+========================================= */
+
+.footer-note {
+
+    width: 100%;
+
+    margin-top: 40px;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    margin-bottom: 30px;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+
+    font-weight: 400;
+
+    color: #e6d09f;
+
+    text-align: left;
+
+    opacity: 0.95;
+
+    text-shadow:
+        1px 1px 4px rgba(0,0,0,1);
+}
+
+
+/* =========================================
+   MÀN HÌNH NHỎ
+========================================= */
+
+@media (max-width: 350px) {
+
+    .container {
+        width: 270px;
+        max-width: 270px;
+    }
+
+    .qr-card {
+        width: 270px;
+    }
+
+    .qr-image-container,
+    .ewm {
+
+        width: 228px;
+        height: 228px;
+    }
+
+    #current-time {
+        font-size: 18px;
+    }
+
+    .qr-header {
+        font-size: 15px;
+    }
+
+    .footer-note {
+        font-size: 16px;
+    }
+}
+
+</style>
+
 </head>
 
 
 <body>
 
-    <div class="overlay"></div>
+
+<div class="overlay"></div>
 
 
-    <div class="container">
+<div class="container">
 
 
-        <!-- TÊN -->
-        <div class="user-info">
-            V25102128(Mong Tien Nhieu)
+    <!-- =================================
+         TÊN NHÂN VIÊN
+    ================================== -->
+
+    <div class="user-info">
+        V25102128(Mong Tien Nhieu)
+    </div>
+
+
+    <!-- =================================
+         KHUNG QR
+    ================================== -->
+
+    <div class="qr-card">
+
+
+        <!-- HEADER -->
+
+        <div class="qr-header">
+            将二维码对准扫描器刷码出场
         </div>
 
 
-        <!-- KHUNG QR -->
-        <div class="qr-card">
+        <!-- LỖ TRÒN -->
+
+        <div class="notch notch-left"></div>
+
+        <div class="notch notch-right"></div>
 
 
-            <!-- HEADER VÀNG -->
-            <div class="qr-header">
-                将二维码对准扫描器刷码出场
+        <!-- BODY -->
+
+        <div class="qr-body">
+
+
+            <!-- NGÀY GIỜ -->
+
+            <div id="current-time">
             </div>
 
 
-            <!-- LỖ TRÒN -->
-            <div class="notch notch-left"></div>
-            <div class="notch notch-right"></div>
+            <!-- QR -->
 
+            <div class="qr-image-container">
 
-            <!-- BODY TRẮNG -->
-            <div class="qr-body">
-
-
-                <!-- NGÀY GIỜ -->
-                <div id="current-time"></div>
-
-
-                <!-- QR -->
-                <div class="qr-image-container">
-
-                    <img
-                        src="./ewm.gif"
-                        class="ewm"
-                        alt="QR Code"
-                        onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=KaelenNguyen'"
-                    >
-
-                </div>
-
-
-                <!-- REFRESH -->
-                <span class="refresh-text">
-                    刷新二维码
-                </span>
-
-
-                <!-- TRẠNG THÁI -->
-                <div class="status-active">
-                    已生效
-                </div>
-
-
-                <!-- TIMER -->
-                <div id="timer-up">
-                    00:00
-                </div>
-
+                <img
+                    src="./ewm.gif"
+                    class="ewm"
+                    alt="QR Code"
+                    onerror="
+                    this.src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=KaelenNguyen'
+                    "
+                >
 
             </div>
 
+
+            <!-- REFRESH -->
+
+            <span class="refresh-text">
+                刷新二维码
+            </span>
+
+
+            <!-- TRẠNG THÁI -->
+
+            <div class="status-active">
+                已生效
+            </div>
+
+
+            <!-- TIMER -->
+
+            <div id="timer-up">
+                12:00
+            </div>
+
+
         </div>
-
-
-        <!-- THÔNG BÁO -->
-        <div class="footer-note">
-
-            尊敬的员工您好，您已进入企业涉密区域，
-            出于企业安全考虑，您的手机摄像头将被禁止拍摄，
-            感谢您的配合。
-
-        </div>
-
 
     </div>
 
 
+    <!-- =================================
+         THÔNG BÁO
+    ================================== -->
+
+    <div class="footer-note">
+
+        尊敬的员工您好，您已进入企业涉密区域，
+        出于企业安全考虑，您的手机摄像头将被禁止拍摄，
+        感谢您的配合。
+
+    </div>
+
+
+</div>
+
+
+
 <script>
 
-    /* =====================================
-       ĐỒNG HỒ NGÀY GIỜ
-    ===================================== */
+/* =========================================
+   HIỂN THỊ NGÀY GIỜ
+========================================= */
 
-    function updateClock() {
+function updateClock() {
 
-        const now = new Date();
+    const now = new Date();
 
-        const y = now.getFullYear();
+    const year =
+        now.getFullYear();
 
-        const m = String(
+    const month =
+        String(
             now.getMonth() + 1
-        ).padStart(2, '0');
+        ).padStart(2, "0");
 
-        const d = String(
+    const day =
+        String(
             now.getDate()
-        ).padStart(2, '0');
+        ).padStart(2, "0");
 
-        const hh = String(
+    const hours =
+        String(
             now.getHours()
-        ).padStart(2, '0');
+        ).padStart(2, "0");
 
-        const mm = String(
+    const minutes =
+        String(
             now.getMinutes()
-        ).padStart(2, '0');
+        ).padStart(2, "0");
 
-        const ss = String(
+    const seconds =
+        String(
             now.getSeconds()
-        ).padStart(2, '0');
+        ).padStart(2, "0");
 
 
-        document.getElementById(
-            'current-time'
-        ).textContent =
-            `${y}-${m}-${d} ${hh}:${mm}:${ss}`;
-    }
+    document.getElementById(
+        "current-time"
+    ).textContent =
+        `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
 
 
+/* =========================================
+   COUNTDOWN 12 GIỜ
+========================================= */
 
-    /* =====================================
-       TIMER 12 GIỜ
-    ===================================== */
-
-    let startTime =
-        localStorage.getItem(
-            "qrStartTimeCounter"
-        );
+const TOTAL_TIME =
+    12 * 60 * 60;
 
 
-    if (!startTime) {
+/*
+   Lưu thời điểm bắt đầu.
 
-        startTime = Date.now();
+   Nếu chưa có:
+   bắt đầu 12 giờ.
 
-        localStorage.setItem(
-            "qrStartTimeCounter",
-            startTime
-        );
+   Nếu đã có:
+   tiếp tục thời gian cũ.
+*/
 
-    } else {
+let startTime =
+    localStorage.getItem(
+        "qrStartTime"
+    );
 
-        startTime = parseInt(
+
+if (!startTime) {
+
+    startTime =
+        Date.now();
+
+    localStorage.setItem(
+        "qrStartTime",
+        startTime
+    );
+
+} else {
+
+    startTime =
+        parseInt(
             startTime,
             10
         );
+}
+
+
+/* =========================================
+   CẬP NHẬT COUNTDOWN
+========================================= */
+
+function updateTimer() {
+
+    const now =
+        Date.now();
+
+
+    let elapsed =
+        Math.floor(
+            (now - startTime) / 1000
+        );
+
+
+    /*
+       Hết 12 giờ
+       tự động bắt đầu lại
+    */
+
+    if (elapsed >= TOTAL_TIME) {
+
+        startTime =
+            Date.now();
+
+        localStorage.setItem(
+            "qrStartTime",
+            startTime
+        );
+
+        elapsed = 0;
     }
 
 
-
-    function updateTimer() {
-
-        const now = Date.now();
-
-        let diffInSecs =
-            Math.floor(
-                (now - startTime) / 1000
-            );
+    let remaining =
+        TOTAL_TIME - elapsed;
 
 
-        /*
-         * 12 giờ = 43200 giây
-         */
+    const hours =
+        Math.floor(
+            remaining / 3600
+        );
 
-        if (diffInSecs >= 43200) {
+    const minutes =
+        Math.floor(
+            (remaining % 3600) / 60
+        );
 
-            startTime = Date.now();
-
-            localStorage.setItem(
-                "qrStartTimeCounter",
-                startTime
-            );
-
-            diffInSecs = 0;
-        }
+    const seconds =
+        remaining % 60;
 
 
-        const hrs =
-            Math.floor(
-                diffInSecs / 3600
-            );
+    /*
+       Ảnh mẫu hiển thị:
 
-        const mins =
-            Math.floor(
-                (diffInSecs % 3600) / 60
-            );
+       06:46
 
-        const secs =
-            diffInSecs % 60;
+       Khi còn hơn 1 giờ:
 
+       11:59:59
+    */
 
-        let display;
+    let display;
 
 
-        if (hrs > 0) {
+    if (hours > 0) {
 
-            display =
-                `${String(hrs).padStart(2, '0')}:` +
-                `${String(mins).padStart(2, '0')}:` +
-                `${String(secs).padStart(2, '0')}`;
+        display =
+            `${String(hours).padStart(2, "0")}:` +
+            `${String(minutes).padStart(2, "0")}:` +
+            `${String(seconds).padStart(2, "0")}`;
 
-        } else {
+    } else {
 
-            display =
-                `${String(mins).padStart(2, '0')}:` +
-                `${String(secs).padStart(2, '0')}`;
-        }
-
-
-        document.getElementById(
-            'timer-up'
-        ).textContent = display;
+        display =
+            `${String(minutes).padStart(2, "0")}:` +
+            `${String(seconds).padStart(2, "0")}`;
     }
 
 
-
-    /* =====================================
-       CHẠY
-    ===================================== */
-
-    updateClock();
-
-    updateTimer();
+    document.getElementById(
+        "timer-up"
+    ).textContent =
+        display;
+}
 
 
-    setInterval(
-        updateClock,
-        1000
-    );
+/* =========================================
+   KHỞI ĐỘNG
+========================================= */
 
-    setInterval(
-        updateTimer,
-        1000
-    );
+updateClock();
+
+updateTimer();
+
+
+setInterval(
+    updateClock,
+    1000
+);
+
+setInterval(
+    updateTimer,
+    1000
+);
 
 </script>
 
+
 </body>
+
 </html>

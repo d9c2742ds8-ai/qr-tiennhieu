@@ -6,10 +6,7 @@
     <meta charset="UTF-8">
 
     <meta name="viewport"
-          content="width=device-width,
-                   initial-scale=1.0,
-                   maximum-scale=1.0,
-                   user-scalable=no">
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <meta name="apple-mobile-web-app-capable"
           content="yes">
@@ -19,9 +16,7 @@
 
     <title>&#8206;</title>
 
-    <link rel="apple-touch-icon-precomposed"
-          href="http://abc.haoyunlai.xyz/favicon.ico"
-          type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
 
     <link rel="apple-touch-icon"
           href="icon.png">
@@ -29,484 +24,553 @@
     <link rel="manifest"
           href="manifest.json">
 
-    <link rel="stylesheet"
-          href="./style.css">
 
+    <style>
 
-<style>
+        /* =========================================
+           CÀI ĐẶT CHUNG
+        ========================================= */
 
-/* =========================================
-   CÀI ĐẶT CHUNG
-========================================= */
+        * {
+            box-sizing: border-box;
+        }
 
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-}
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
 
-html,
-body {
-    margin: 0;
-    padding: 0;
+        body {
 
-    width: 100%;
-    min-height: 100%;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Helvetica Neue",
+                Arial,
+                sans-serif;
 
-    overflow-x: hidden;
-}
+            background:
+                url("IMG_8622.jpeg")
+                no-repeat
+                center center
+                fixed;
 
-body {
+            background-size: cover;
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Helvetica Neue",
-        Arial,
-        "PingFang SC",
-        "Microsoft YaHei",
-        sans-serif;
+            display: flex;
 
-    background-image:
-        url("IMG_8622.jpeg");
+            justify-content: center;
 
-    background-repeat: no-repeat;
+            overflow-x: hidden;
 
-    background-position:
-        center center;
+            color: #222;
+        }
 
-    background-size: cover;
 
-    background-attachment: fixed;
+        /* =========================================
+           LỚP TỐI TRÊN ẢNH NỀN
+        ========================================= */
 
-    min-height: 100vh;
+        .overlay {
 
-    display: flex;
+            position: fixed;
 
-    justify-content: center;
+            top: 0;
+            left: 0;
 
-    align-items: flex-start;
-}
+            width: 100%;
+            height: 100%;
 
+            background: rgba(0, 0, 0, 0.50);
 
-/* =========================================
-   LỚP PHỦ TỐI
-========================================= */
+            z-index: -1;
+        }
 
-.overlay {
 
-    position: fixed;
+        /* =========================================
+           KHUNG CHÍNH
+        ========================================= */
 
-    left: 0;
-    top: 0;
+        .container {
 
-    width: 100%;
-    height: 100%;
+            width: 100%;
 
-    background:
-        rgba(0, 0, 0, 0.50);
+            max-width: 720px;
 
-    z-index: 0;
+            padding-top: 65px;
 
-    pointer-events: none;
-}
+            text-align: center;
+        }
 
 
-/* =========================================
-   CONTAINER
-========================================= */
+        /* =========================================
+           TÊN NHÂN VIÊN
+        ========================================= */
 
-.container {
+        .user-info {
 
-    position: relative;
+            font-size: 1.35rem;
 
-    width: 282px;
+            font-weight: 600;
 
-    max-width: 282px;
+            margin-bottom: 48px;
 
-    margin: 0 auto;
+            color: #f0dca7;
 
-    padding-top: 55px;
+            letter-spacing: 0.3px;
 
-    z-index: 1;
+            text-shadow:
+                0px 2px 4px rgba(0,0,0,1),
+                0px 0px 10px rgba(0,0,0,0.8);
+        }
 
-    text-align: center;
-}
 
+        /* =========================================
+           THẺ QR
+        ========================================= */
 
-/* =========================================
-   TÊN NHÂN VIÊN
-========================================= */
+        .qr-card {
 
-.user-info {
+            position: relative;
 
-    width: 100%;
+            background: #ffffff;
 
-    height: 24px;
+            border-radius: 13px;
 
-    margin-bottom: 27px;
+            margin: 0 15px;
 
-    font-size: 17px;
+            overflow: hidden;
 
-    line-height: 24px;
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.50);
+        }
 
-    font-weight: 600;
 
-    color: #e6d09f;
+        /* =========================================
+           PHẦN MÀU VÀNG
+        ========================================= */
 
-    white-space: nowrap;
+        .qr-header {
 
-    letter-spacing: 0.1px;
+            background: #f5c542;
 
-    text-shadow:
-        0px 2px 4px rgba(0,0,0,1),
-        0px 0px 10px rgba(0,0,0,0.8);
-}
+            color: #ffffff;
 
+            min-height: 126px;
 
-/* =========================================
-   KHUNG QR
-========================================= */
+            padding:
+                42px 15px
+                35px 15px;
 
-.qr-card {
+            display: flex;
 
-    position: relative;
+            align-items: center;
 
-    width: 282px;
+            justify-content: center;
 
-    background: #ffffff;
+            font-size: 1.20rem;
 
-    border-radius: 10px;
+            font-weight: 400;
 
-    overflow: hidden;
+            line-height: 1.3;
+        }
 
-    box-shadow:
-        0px 15px 35px rgba(0,0,0,0.50);
-}
 
+        /* =========================================
+           LỖ TRÒN HAI BÊN
+        ========================================= */
 
-/* =========================================
-   PHẦN VÀNG
-========================================= */
+        .notch {
 
-.qr-header {
+            position: absolute;
 
-    width: 100%;
+            width: 22px;
+            height: 22px;
 
-    height: 54px;
+            top: 115px;
 
-    background:
-        #f5c542;
+            background: #303248;
 
-    color: #ffffff;
+            border-radius: 50%;
 
-    display: flex;
+            z-index: 5;
+        }
 
-    align-items: center;
+        .notch-left {
+            left: -11px;
+        }
 
-    justify-content: center;
+        .notch-right {
+            right: -11px;
+        }
 
-    padding: 0 8px;
 
-    font-size: 16px;
+        /* =========================================
+           PHẦN TRẮNG
+        ========================================= */
 
-    line-height: 20px;
+        .qr-body {
 
-    font-weight: 400;
+            background: #ffffff;
 
-    white-space: nowrap;
-}
+            padding:
+                28px
+                20px
+                35px;
 
+            color: #202433;
+        }
 
-/* =========================================
-   LỖ TRÒN
-========================================= */
 
-.notch {
+        /* =========================================
+           THỜI GIAN HIỆN TẠI
+        ========================================= */
 
-    position: absolute;
+        #current-time {
 
-    width: 14px;
-    height: 14px;
+            font-size: 1.45rem;
 
-    top: 47px;
+            font-weight: 600;
 
-    border-radius: 50%;
+            margin-bottom: 18px;
 
-    background:
-        #2e3045;
+            color: #202433;
 
-    z-index: 10;
-}
+            letter-spacing: 0;
+        }
 
-.notch-left {
-    left: -7px;
-}
 
-.notch-right {
-    right: -7px;
-}
+        /* =========================================
+           KHUNG QR
+        ========================================= */
 
+        .qr-image-container {
 
-/* =========================================
-   PHẦN TRẮNG
-========================================= */
+            width: 86%;
 
-.qr-body {
+            max-width: 560px;
 
-    width: 100%;
+            margin: 0 auto;
+        }
 
-    /*
-       Chiều cao được căn theo ảnh mẫu
-    */
 
-    min-height: 408px;
+        .ewm {
 
-    padding-top: 16px;
+            width: 100%;
 
-    padding-left: 10px;
-    padding-right: 10px;
+            height: auto;
 
-    padding-bottom: 15px;
+            display: block;
 
-    color: #111111;
+            image-rendering: auto;
+        }
 
-    text-align: center;
-}
 
+        /* =========================================
+           CHỮ "刷新二维码"
+        ========================================= */
 
-/* =========================================
-   NGÀY GIỜ
-========================================= */
+        .refresh-text {
 
-#current-time {
+            display: block;
 
-    width: 100%;
+            margin-top: 25px;
 
-    height: 29px;
+            margin-bottom: 13px;
 
-    margin: 0 0 9px 0;
+            color: #111111;
 
-    font-size: 20px;
+            font-size: 1.20rem;
 
-    line-height: 29px;
+            font-weight: 400;
 
-    font-weight: 600;
+            line-height: 1;
 
-    color: #151a2a;
+            user-select: none;
+        }
 
-    letter-spacing: -0.5px;
 
-    white-space: nowrap;
-}
+        /* =========================================
+           TRẠNG THÁI 已生效
+        ========================================= */
 
+        .status-active {
 
-/* =========================================
-   KHUNG QR
-========================================= */
+            color: #a7e8c3;
 
-.qr-image-container {
+            font-size: 1.85rem;
 
-    width: 240px;
+            font-weight: 500;
 
-    height: 240px;
+            line-height: 1;
 
-    margin: 0 auto;
+            margin-top: 0;
 
-    padding: 0;
+            margin-bottom: 12px;
 
-    display: flex;
+            animation: breath 2.5s infinite ease-in-out;
+        }
 
-    align-items: center;
 
-    justify-content: center;
-}
+        /* =========================================
+           TIMER
 
+           00:00
+           18:20
+           59:59
 
-/* =========================================
-   QR
-========================================= */
+           sau 1 giờ:
 
-.ewm {
+           1:00:00
+           1:18:20
 
-    width: 240px;
+           hết 12 giờ:
 
-    height: 240px;
+           00:00
+        ========================================= */
 
-    margin: 0;
-    padding: 0;
+        #timer-up {
 
-    display: block;
+            color: #20c463;
 
-    object-fit: contain;
+            font-size: 2rem;
 
-    image-rendering: pixelated;
-}
+            font-weight: 600;
 
+            line-height: 1;
 
-/* =========================================
-   刷新二维码
-========================================= */
+            margin-top: 0;
+        }
 
-.refresh-text {
 
-    display: block;
+        /* =========================================
+           HIỆU ỨNG 已生效
+        ========================================= */
 
-    width: 100%;
+        @keyframes breath {
 
-    height: 25px;
+            0%,
+            100% {
+                opacity: 0.70;
+            }
 
-    margin-top: 10px;
+            50% {
+                opacity: 1;
+            }
+        }
 
-    margin-bottom: 0;
 
-    color: #111111;
+        /* =========================================
+           CHỮ PHÍA DƯỚI
+        ========================================= */
 
-    font-size: 17px;
+        .footer-note {
 
-    line-height: 25px;
+            margin:
+                45px
+                40px
+                30px;
 
-    font-weight: 400;
+            font-size: 1.05rem;
 
-    user-select: none;
+            line-height: 1.9;
 
-    -webkit-user-select: none;
-}
+            color: #e0c9a6;
 
+            text-align: left;
 
-/* =========================================
-   已生效
-========================================= */
+            text-shadow:
+                1px 1px 4px rgba(0,0,0,1);
 
-.status-active {
+            opacity: 0.95;
+        }
 
-    width: 100%;
 
-    height: 40px;
+        /* =========================================
+           ĐIỆN THOẠI NHỎ
+        ========================================= */
 
-    margin-top: 2px;
+        @media (max-width: 600px) {
 
-    color: #a9e8c7;
+            .container {
 
-    font-size: 31px;
+                padding-top: 55px;
+            }
 
-    line-height: 40px;
 
-    font-weight: 400;
+            .user-info {
 
-    animation:
-        breath 2.5s infinite ease-in-out;
-}
+                font-size: 1.20rem;
 
+                margin-bottom: 40px;
+            }
 
-/* =========================================
-   THỜI GIAN CÒN LẠI
-========================================= */
 
-#timer-up {
+            .qr-card {
 
-    width: 100%;
+                margin:
+                    0 15px;
 
-    height: 37px;
+                border-radius: 13px;
+            }
 
-    margin-top: 0;
 
-    color: #16c765;
+            .qr-header {
 
-    font-size: 29px;
+                min-height: 110px;
 
-    line-height: 37px;
+                padding:
+                    35px 12px;
 
-    font-weight: 500;
+                font-size: 1.05rem;
+            }
 
-    letter-spacing: 0;
-}
 
+            .notch {
 
-/* =========================================
-   HIỆU ỨNG
-========================================= */
+                top: 99px;
 
-@keyframes breath {
+                width: 22px;
+                height: 22px;
+            }
 
-    0%,
-    100% {
-        opacity: 0.70;
-    }
 
-    50% {
-        opacity: 1;
-    }
-}
+            .qr-body {
 
+                padding:
+                    25px
+                    15px
+                    32px;
+            }
 
-/* =========================================
-   THÔNG BÁO
-========================================= */
 
-.footer-note {
+            #current-time {
 
-    width: 100%;
+                font-size: 1.20rem;
 
-    margin-top: 40px;
+                margin-bottom: 16px;
+            }
 
-    margin-left: 0;
-    margin-right: 0;
 
-    margin-bottom: 30px;
+            .qr-image-container {
 
-    font-size: 17px;
+                width: 88%;
+            }
 
-    line-height: 1.75;
 
-    font-weight: 400;
+            .refresh-text {
 
-    color: #e6d09f;
+                font-size: 1.05rem;
 
-    text-align: left;
+                margin-top: 22px;
+            }
 
-    opacity: 0.95;
 
-    text-shadow:
-        1px 1px 4px rgba(0,0,0,1);
-}
+            .status-active {
 
+                font-size: 1.70rem;
 
-/* =========================================
-   MÀN HÌNH NHỎ
-========================================= */
+                margin-bottom: 12px;
+            }
 
-@media (max-width: 350px) {
 
-    .container {
-        width: 270px;
-        max-width: 270px;
-    }
+            #timer-up {
 
-    .qr-card {
-        width: 270px;
-    }
+                font-size: 1.85rem;
+            }
 
-    .qr-image-container,
-    .ewm {
 
-        width: 228px;
-        height: 228px;
-    }
+            .footer-note {
 
-    #current-time {
-        font-size: 18px;
-    }
+                margin:
+                    42px
+                    30px
+                    30px;
 
-    .qr-header {
-        font-size: 15px;
-    }
+                font-size: 0.98rem;
 
-    .footer-note {
-        font-size: 16px;
-    }
-}
+                line-height: 1.9;
+            }
+        }
 
-</style>
+
+        /* =========================================
+           IPHONE RẤT NHỎ
+        ========================================= */
+
+        @media (max-width: 390px) {
+
+            .container {
+
+                padding-top: 45px;
+            }
+
+
+            .user-info {
+
+                font-size: 1.05rem;
+
+                margin-bottom: 32px;
+            }
+
+
+            .qr-header {
+
+                font-size: 0.95rem;
+
+                min-height: 100px;
+            }
+
+
+            .notch {
+
+                top: 89px;
+            }
+
+
+            #current-time {
+
+                font-size: 1.05rem;
+            }
+
+
+            .qr-image-container {
+
+                width: 90%;
+            }
+
+
+            .refresh-text {
+
+                font-size: 1rem;
+            }
+
+
+            .status-active {
+
+                font-size: 1.55rem;
+            }
+
+
+            #timer-up {
+
+                font-size: 1.70rem;
+            }
+
+
+            .footer-note {
+
+                margin-left: 25px;
+                margin-right: 25px;
+
+                font-size: 0.92rem;
+            }
+        }
+
+    </style>
 
 </head>
 
@@ -514,327 +578,396 @@ body {
 <body>
 
 
-<div class="overlay"></div>
+    <!-- =========================================
+         LỚP TỐI
+    ========================================== -->
+
+    <div class="overlay"></div>
 
 
-<div class="container">
+    <!-- =========================================
+         KHUNG CHÍNH
+    ========================================== -->
+
+    <div class="container">
 
 
-    <!-- =================================
-         TÊN NHÂN VIÊN
-    ================================== -->
+        <!-- TÊN -->
 
-    <div class="user-info">
-        V25102128(Mong Tien Nhieu)
-    </div>
-
-
-    <!-- =================================
-         KHUNG QR
-    ================================== -->
-
-    <div class="qr-card">
-
-
-        <!-- HEADER -->
-
-        <div class="qr-header">
-            将二维码对准扫描器刷码出场
+        <div class="user-info">
+            V25102128(Mong Tien Nhieu)
         </div>
 
 
-        <!-- LỖ TRÒN -->
+        <!-- =====================================
+             THẺ QR
+        ====================================== -->
 
-        <div class="notch notch-left"></div>
-
-        <div class="notch notch-right"></div>
-
-
-        <!-- BODY -->
-
-        <div class="qr-body">
+        <div class="qr-card">
 
 
-            <!-- NGÀY GIỜ -->
+            <!-- PHẦN VÀNG -->
 
-            <div id="current-time">
-            </div>
+            <div class="qr-header">
 
-
-            <!-- QR -->
-
-            <div class="qr-image-container">
-
-                <img
-                    src="./ewm.gif"
-                    class="ewm"
-                    alt="QR Code"
-                    onerror="
-                    this.src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=KaelenNguyen'
-                    "
-                >
+                将二维码对准扫描器刷码出场
 
             </div>
 
 
-            <!-- REFRESH -->
+            <!-- LỖ TRÒN -->
 
-            <span class="refresh-text">
-                刷新二维码
-            </span>
+            <div class="notch notch-left"></div>
+
+            <div class="notch notch-right"></div>
 
 
-            <!-- TRẠNG THÁI -->
+            <!-- =================================
+                 PHẦN TRẮNG
+            ================================== -->
 
-            <div class="status-active">
-                已生效
+            <div class="qr-body">
+
+
+                <!-- THỜI GIAN THỰC -->
+
+                <div id="current-time"></div>
+
+
+                <!-- QR -->
+
+                <div class="qr-image-container">
+
+                    <img
+                        src="./ewm.gif"
+                        class="ewm"
+                        alt="QR Code"
+                        onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=KaelenNguyen';"
+                    >
+
+                </div>
+
+
+                <!-- REFRESH -->
+
+                <span class="refresh-text">
+                    刷新二维码
+                </span>
+
+
+                <!-- TRẠNG THÁI -->
+
+                <div class="status-active">
+                    已生效
+                </div>
+
+
+                <!-- TIMER -->
+
+                <div id="timer-up">
+                    00:00
+                </div>
+
+
             </div>
-
-
-            <!-- TIMER -->
-
-            <div id="timer-up">
-                12:00
-            </div>
-
 
         </div>
 
+
+        <!-- =====================================
+             CHỮ PHÍA DƯỚI
+        ====================================== -->
+
+        <div class="footer-note">
+
+            尊敬的员工您好，您已进入企业涉密区域，出于企业安全考虑，您的手机摄像头将被禁止拍摄，感谢您的配合。
+
+        </div>
+
+
     </div>
 
 
-    <!-- =================================
-         THÔNG BÁO
-    ================================== -->
 
-    <div class="footer-note">
-
-        尊敬的员工您好，您已进入企业涉密区域，
-        出于企业安全考虑，您的手机摄像头将被禁止拍摄，
-        感谢您的配合。
-
-    </div>
+    <script>
 
 
-</div>
+        /* =========================================
+           ĐỒNG HỒ HIỆN TẠI
+           
+           Ví dụ:
+
+           2026-9-4 12:40:05
+        ========================================= */
+
+        function updateClock() {
+
+            const now = new Date();
+
+
+            const year =
+                now.getFullYear();
+
+
+            const month =
+                now.getMonth() + 1;
+
+
+            const day =
+                now.getDate();
+
+
+            const hours =
+                String(now.getHours())
+                .padStart(2, "0");
+
+
+            const minutes =
+                String(now.getMinutes())
+                .padStart(2, "0");
+
+
+            const seconds =
+                String(now.getSeconds())
+                .padStart(2, "0");
+
+
+            const timeString =
+                `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
+
+            document.getElementById(
+                "current-time"
+            ).textContent = timeString;
+        }
 
 
 
-<script>
+        /* =========================================
+           TIMER
 
-/* =========================================
-   HIỂN THỊ NGÀY GIỜ
-========================================= */
+           BẮT ĐẦU:
 
-function updateClock() {
+           00:00
 
-    const now = new Date();
+           CHƯA ĐỦ 1 GIỜ:
 
-    const year =
-        now.getFullYear();
+           00:01
+           00:59
+           18:20
+           59:59
 
-    const month =
-        String(
-            now.getMonth() + 1
-        ).padStart(2, "0");
+           TỪ 1 GIỜ:
 
-    const day =
-        String(
-            now.getDate()
-        ).padStart(2, "0");
+           1:00:00
+           1:18:20
+           2:05:30
+           ...
+           11:59:59
 
-    const hours =
-        String(
-            now.getHours()
-        ).padStart(2, "0");
+           SAU 12 GIỜ:
 
-    const minutes =
-        String(
-            now.getMinutes()
-        ).padStart(2, "0");
+           00:00
 
-    const seconds =
-        String(
-            now.getSeconds()
-        ).padStart(2, "0");
+           RỒI CHẠY LẠI
+        ========================================= */
 
 
-    document.getElementById(
-        "current-time"
-    ).textContent =
-        `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-}
+        /*
+           Thời điểm bắt đầu timer.
+
+           KHÔNG dùng localStorage.
+
+           Vì vậy mỗi lần tải lại trang
+           timer sẽ bắt đầu từ 00:00.
+        */
+
+        let startTime = Date.now();
 
 
-/* =========================================
-   COUNTDOWN 12 GIỜ
-========================================= */
 
-const TOTAL_TIME =
-    12 * 60 * 60;
+        function updateTimer() {
 
 
-/*
-   Lưu thời điểm bắt đầu.
+            /* Thời gian hiện tại */
 
-   Nếu chưa có:
-   bắt đầu 12 giờ.
-
-   Nếu đã có:
-   tiếp tục thời gian cũ.
-*/
-
-let startTime =
-    localStorage.getItem(
-        "qrStartTime"
-    );
+            const now =
+                Date.now();
 
 
-if (!startTime) {
+            /*
+               Số giây đã chạy
+            */
 
-    startTime =
-        Date.now();
+            let elapsed =
+                Math.floor(
+                    (now - startTime) / 1000
+                );
 
-    localStorage.setItem(
-        "qrStartTime",
-        startTime
-    );
 
-} else {
+            /*
+               ==================================
+               12 GIỜ = 43.200 GIÂY
+               ==================================
+            */
 
-    startTime =
-        parseInt(
-            startTime,
-            10
+            const twelveHours =
+                12 * 60 * 60;
+
+
+            /*
+               Nếu chạy đủ 12 giờ
+               → reset
+            */
+
+            if (elapsed >= twelveHours) {
+
+                startTime =
+                    Date.now();
+
+                elapsed = 0;
+            }
+
+
+            /*
+               ==================================
+               TÍNH GIỜ
+               ==================================
+            */
+
+            const hours =
+                Math.floor(
+                    elapsed / 3600
+                );
+
+
+            /*
+               ==================================
+               TÍNH PHÚT
+               ==================================
+            */
+
+            const minutes =
+                Math.floor(
+                    (elapsed % 3600) / 60
+                );
+
+
+            /*
+               ==================================
+               TÍNH GIÂY
+               ==================================
+            */
+
+            const seconds =
+                elapsed % 60;
+
+
+            let display;
+
+
+
+            /*
+               ==================================
+               CHƯA ĐỦ 1 GIỜ
+
+               HIỆN:
+
+               00:00
+               00:01
+               18:20
+               59:59
+               ==================================
+            */
+
+            if (hours === 0) {
+
+                display =
+                    String(minutes)
+                    .padStart(2, "0")
+                    +
+                    ":"
+                    +
+                    String(seconds)
+                    .padStart(2, "0");
+            }
+
+
+            /*
+               ==================================
+               TỪ 1 GIỜ TRỞ LÊN
+
+               HIỆN:
+
+               1:00:00
+               1:18:20
+               2:05:30
+               ...
+               11:59:59
+               ==================================
+            */
+
+            else {
+
+                display =
+                    String(hours)
+                    +
+                    ":"
+                    +
+                    String(minutes)
+                    .padStart(2, "0")
+                    +
+                    ":"
+                    +
+                    String(seconds)
+                    .padStart(2, "0");
+            }
+
+
+            /*
+               ==================================
+               ĐƯA TIMER LÊN MÀN HÌNH
+               ==================================
+            */
+
+            document.getElementById(
+                "timer-up"
+            ).textContent = display;
+
+        }
+
+
+
+        /* =========================================
+           KHỞI ĐỘNG
+        ========================================= */
+
+        updateClock();
+
+        updateTimer();
+
+
+        /*
+           Đồng hồ cập nhật mỗi 1 giây
+        */
+
+        setInterval(
+            updateClock,
+            1000
         );
-}
 
 
-/* =================================
-   TIMER 00:00 → 12:00 → RESET
-================================= */
+        /*
+           Timer cập nhật mỗi 1 giây
+        */
 
-const TOTAL_TIME = 12 * 60 * 60;
-
-let startTime =
-    localStorage.getItem("qrTimerStart");
-
-if (!startTime) {
-
-    startTime = Date.now();
-
-    localStorage.setItem(
-        "qrTimerStart",
-        startTime
-    );
-}
-
-
-/* =================================
-   CẬP NHẬT TIMER
-================================= */
-
-function updateTimer() {
-
-    const now = Date.now();
-
-    let elapsed =
-        Math.floor(
-            (now - Number(startTime)) / 1000
+        setInterval(
+            updateTimer,
+            1000
         );
 
 
-    /*
-       Đủ 12 giờ
-       thì quay lại 00:00
-    */
-
-    if (elapsed >= TOTAL_TIME) {
-
-        startTime = Date.now();
-
-        localStorage.setItem(
-            "qrTimerStart",
-            startTime
-        );
-
-        elapsed = 0;
-    }
-
-
-    const hours =
-        Math.floor(
-            elapsed / 3600
-        );
-
-    const minutes =
-        Math.floor(
-            (elapsed % 3600) / 60
-        );
-
-
-    /*
-       HIỂN THỊ:
-
-       00:00
-       00:01
-       00:02
-       ...
-       06:46
-       ...
-       11:59
-       12:00
-       ↓
-       RESET
-       ↓
-       00:00
-    */
-
-    const display =
-        String(hours).padStart(2, "0")
-        + ":"
-        + String(minutes).padStart(2, "0");
-
-
-    document.getElementById(
-        "timer-up"
-    ).textContent = display;
-}
-
-
-/* =================================
-   KHỞI ĐỘNG TIMER
-================================= */
-
-updateTimer();
-
-setInterval(
-    updateTimer,
-    1000
-);
-
-
-
-/* =========================================
-   KHỞI ĐỘNG
-========================================= */
-
-updateClock();
-
-updateTimer();
-
-
-setInterval(
-    updateClock,
-    1000
-);
-
-setInterval(
-    updateTimer,
-    1000
-);
-
-</script>
+    </script>
 
 
 </body>

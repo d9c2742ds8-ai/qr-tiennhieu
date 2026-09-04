@@ -710,34 +710,51 @@ if (!startTime) {
 }
 
 
-/* =========================================
-   CẬP NHẬT COUNTDOWN
-========================================= */
+/* =================================
+   TIMER 00:00 → 12:00 → RESET
+================================= */
+
+const TOTAL_TIME = 12 * 60 * 60;
+
+let startTime =
+    localStorage.getItem("qrTimerStart");
+
+if (!startTime) {
+
+    startTime = Date.now();
+
+    localStorage.setItem(
+        "qrTimerStart",
+        startTime
+    );
+}
+
+
+/* =================================
+   CẬP NHẬT TIMER
+================================= */
 
 function updateTimer() {
 
-    const now =
-        Date.now();
-
+    const now = Date.now();
 
     let elapsed =
         Math.floor(
-            (now - startTime) / 1000
+            (now - Number(startTime)) / 1000
         );
 
 
     /*
-       Hết 12 giờ
-       tự động bắt đầu lại
+       Đủ 12 giờ
+       thì quay lại 00:00
     */
 
     if (elapsed >= TOTAL_TIME) {
 
-        startTime =
-            Date.now();
+        startTime = Date.now();
 
         localStorage.setItem(
-            "qrStartTime",
+            "qrTimerStart",
             startTime
         );
 
@@ -745,57 +762,57 @@ function updateTimer() {
     }
 
 
-    let remaining =
-        TOTAL_TIME - elapsed;
-
-
     const hours =
         Math.floor(
-            remaining / 3600
+            elapsed / 3600
         );
 
     const minutes =
         Math.floor(
-            (remaining % 3600) / 60
+            (elapsed % 3600) / 60
         );
-
-    const seconds =
-        remaining % 60;
 
 
     /*
-       Ảnh mẫu hiển thị:
+       HIỂN THỊ:
 
+       00:00
+       00:01
+       00:02
+       ...
        06:46
-
-       Khi còn hơn 1 giờ:
-
-       11:59:59
+       ...
+       11:59
+       12:00
+       ↓
+       RESET
+       ↓
+       00:00
     */
 
-    let display;
-
-
-    if (hours > 0) {
-
-        display =
-            `${String(hours).padStart(2, "0")}:` +
-            `${String(minutes).padStart(2, "0")}:` +
-            `${String(seconds).padStart(2, "0")}`;
-
-    } else {
-
-        display =
-            `${String(minutes).padStart(2, "0")}:` +
-            `${String(seconds).padStart(2, "0")}`;
-    }
+    const display =
+        String(hours).padStart(2, "0")
+        + ":"
+        + String(minutes).padStart(2, "0");
 
 
     document.getElementById(
         "timer-up"
-    ).textContent =
-        display;
+    ).textContent = display;
 }
+
+
+/* =================================
+   KHỞI ĐỘNG TIMER
+================================= */
+
+updateTimer();
+
+setInterval(
+    updateTimer,
+    1000
+);
+
 
 
 /* =========================================
